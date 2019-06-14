@@ -26,7 +26,7 @@ def configure_climatix():
     return render_template("clx_config.html", config_form=ConfigForm(), timestamp=formatted_datetime)
 
 
-@app.route("/monitoring", methods=["GET"])
+@app.route("/monitor", methods=["GET"])
 def monitor_climatix():
     now = datetime.datetime.now()
     datetime_format = '%Y-%m-%d %H:%M:%S'
