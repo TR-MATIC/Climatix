@@ -7,7 +7,10 @@ from source_code.clx_config import ConfigForm
 
 @app.route("/")
 def climatix_root():
-    return render_template("clx_root.html")
+    now = datetime.datetime.now()
+    datetime_format = '%Y-%m-%d %H:%M:%S'
+    formatted_datetime = now.strftime(datetime_format)
+    return render_template("clx_root.html", timestamp=formatted_datetime)
 
 
 @app.route("/config", methods=["GET", "POST"])
@@ -25,4 +28,7 @@ def configure_climatix():
 
 @app.route("/monitor", methods=["GET"])
 def monitor_climatix():
-    return render_template("clx_monitor.html")
+    now = datetime.datetime.now()
+    datetime_format = '%Y-%m-%d %H:%M:%S'
+    formatted_datetime = now.strftime(datetime_format)
+    return render_template("clx_monitor.html", timestamp=formatted_datetime)
