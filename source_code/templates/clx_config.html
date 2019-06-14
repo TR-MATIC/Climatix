@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <title>Climatix config</title>
+</head>
+<body>
+    {% include "clx_app_info.html" %}
+    <br>
+    <br>
+    <form method="POST">
+
+        {{ config_form.csrf_token }}
+        <table style="width:500px">
+            <tr>
+                <td>{{ config_form.ip_address.label }} : </td>
+                <td>{{ config_form.ip_address }}</td>
+            </tr>
+            <tr>
+                <td>{{ config_form.user_name.label }} : </td>
+                <td>{{ config_form.user_name }}</td>
+            </tr>
+            <tr>
+                <td>{{ config_form.user_pass.label }} : </td>
+                <td>{{ config_form.user_pass }}</td>
+            </tr>
+            <tr>
+                <td>{{ config_form.user_pin.label }} : </td>
+                <td>{{ config_form.user_pin }}</td>
+            </tr>
+            <tr>
+                <td>{{ config_form.data_file.label }} : </td>
+                <td>{{ config_form.data_file }}</td>
+            </tr>
+            <tr>
+                <td>{{ config_form.comment.label }} : </td>
+                <td>{{ config_form.comment }}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Submit"></td>
+            </tr>
+        </table>
+        <br>
+
+    </form>
+</body>
+</html>
