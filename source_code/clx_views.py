@@ -1,4 +1,6 @@
 import datetime
+import os
+import requests
 from flask import render_template, redirect, request
 
 from source_code import app
@@ -22,6 +24,7 @@ def configure_climatix():
     if config_form.validate_on_submit():
         valid_configuration = config_form.data.copy()
         valid_configuration.pop("csrf_token")
+        print(valid_configuration)
         return redirect("/monitor")
     return render_template("clx_config.html", config_form=ConfigForm(), timestamp=formatted_datetime)
 
