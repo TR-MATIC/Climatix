@@ -12,19 +12,29 @@ def climatix_root():
     now = datetime.datetime.now()
     datetime_format = '%Y-%m-%d %H:%M:%S'
     formatted_datetime = now.strftime(datetime_format)
+    sync_file = open("1_datetime.txt", mode="w", encoding="UTF-8")
+    sync_file.write(formatted_datetime)
+    sync_file.close()
     return render_template("clx_root.html", timestamp=formatted_datetime)
 
 
 @app.route("/config", methods=["GET", "POST"])
 def configure_climatix():
-    now = datetime.datetime.now()
-    datetime_format = '%Y-%m-%d %H:%M:%S'
-    formatted_datetime = now.strftime(datetime_format)
+    sync_file = open("1_datetime.txt", mode="r", encoding="UTF-8")
+    formatted_datetime = sync_file.read()
+    sync_file.close()
+#    now = datetime.datetime.now()
+#    datetime_format = '%Y-%m-%d %H:%M:%S'
+#    formatted_datetime = now.strftime(datetime_format)
     config_form = ConfigForm()
     if config_form.validate_on_submit():
         valid_configuration = config_form.data.copy()
         valid_configuration.pop("csrf_token")
-        print(valid_configuration)
+        sync_file = open("2_config.txt", mode="w", encoding="UTF-8")
+        for key in valid_configuration.keys():
+            sync_file.write(valid_configuration[key] + "\n")
+#        sync_file.write(str(valid_configuration))
+        sync_file.close()
         return redirect("/monitor")
     return render_template("clx_config.html", config_form=ConfigForm(), timestamp=formatted_datetime)
 

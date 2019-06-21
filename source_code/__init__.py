@@ -5,4 +5,5 @@ app.config["SECRET_KEY"] = "BFB0DDE2B39686AB4492FACD0F362FB3C7F3424E38C15B0C871E
 
 from source_code import clx_views
 
-app.run(debug=True)
+if __name__ == "__main__":
+    app.run(debug=True)
