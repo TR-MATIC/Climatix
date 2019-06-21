@@ -8,11 +8,26 @@
 <body>
     {% include "clx_app_info.html" %}
     <br>
-    <br>
-    <table>
+    <table style="width:350px">
         <tr>
-            <td></td>
-            <td></td>
+            <td>IP Address:</td>
+            <td>{{ configuration["ip_address"] }}</td>
+        </tr>
+        <tr>
+            <td>User name:</td>
+            <td>{{ configuration["user_name"] }}</td>
+        </tr>
+        <tr>
+            <td>User PIN:</td>
+            <td>{{ configuration["user_pin"] }}</td>
+        </tr>
+        <tr>
+            <td>Data file:</td>
+            <td>{{ configuration["data_file"] }}</td>
+        </tr>
+        <tr>
+            <td>Comment:</td>
+            <td>{{ configuration["comment"] }}</td>
         </tr>
     </table>
 </body>
