@@ -225,7 +225,7 @@ class CLX_Tester(object):
 
 
     def climatix_auth(self):
-        climatix_auth = (self.__configuration["name"], self.__configuration["pass"])
+        climatix_auth = (self.__configuration["name"], self.__configuration["pasw"])
         return climatix_auth
 
 

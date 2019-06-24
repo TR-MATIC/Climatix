@@ -1,7 +1,11 @@
 from ps_2019_objects import CLX_Tester
+import os
+
 
 
 ps = CLX_Tester()
+process_pid = os.getpid()
+print(process_pid)
 #ps.invite()
 ps.load_config()
 if ps.config_OK and ps.path_OK:
