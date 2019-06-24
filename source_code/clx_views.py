@@ -29,7 +29,7 @@ def configure_climatix():
         valid_configuration.pop("csrf_token")
         conf_file = open("2_config.txt", mode="w", encoding="UTF-8")
         for key in valid_configuration.keys():
-            conf_file.write(valid_configuration[key] + "\n")
+            conf_file.write(key + ":" + valid_configuration[key] + "\n")
         conf_file.close()
         return redirect("/monitor")
     return render_template("clx_config.html", config_form=ConfigForm(), timestamp=formatted_datetime)
